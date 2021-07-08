@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>보물찾자</title>
 </head>
 <body>
@@ -12,7 +11,7 @@
     <img id="map" width="800" height="800" src="http://nostarch.com/images/treasuremap.png">
     <p id="distance"></p>
 
-    <script src="http://code.jquery.com/jquery-2.1.0.js" ></script>
+    <script src="https://code.jquery.com/jquery-2.1.0.js" ></script>
 
     <script>
 
@@ -26,13 +25,14 @@
 
         var treasurePoint = {
             x: getRandomPoint(width),
-            y: getRandomPoint(height);
+            y: getRandomPoint(height)
         }
 
         var getDistance = function(event, treasurePoint) {
             var diffX = event.offsetX - treasurePoint.x;
             var diffY = event.offsetY - treasurePoint.y;
-            return Math.sqrt(diffX*diffX + diffY*diffY);
+            return Math.sqrt((diffX*diffX) + (diffY*diffY));
+            
         }
 
         var getHintText = function(distance) {
