@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     
@@ -29,7 +29,7 @@ var drawBee = function(x, y) {
     circle(x, y, 8, false);
     circle (x-5, y-11, 5, false);
     circle(x+5, y-11, 5, false);
-    circle(x-2, y01, 2, false);
+    circle(x-2, y-1, 2, false);
     circle(x+2, y-1, 2, false);
 }
 
@@ -45,6 +45,7 @@ var update = function(coordinate) {
     }
 
     return coordinate;
+};
 
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
@@ -61,7 +62,7 @@ var update = function(coordinate) {
 
         ctx.strokeRect(0, 0, 200, 200);
     }, 30);
-};
+
 
     </script>
 
