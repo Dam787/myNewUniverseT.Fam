@@ -45,6 +45,22 @@ var update = function(coordinate) {
     }
 
     return coordinate;
+
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var x = 100;
+    var y = 100;
+
+    setInterval(function() {
+        ctx.clearRect(0, 0, 200, 200);
+
+        drawBee(x, y);
+        x = update(x);
+        y = update(y);
+
+        ctx.strokeRect(0, 0, 200, 200);
+    }, 30);
 };
 
     </script>
