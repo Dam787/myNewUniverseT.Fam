@@ -16,7 +16,7 @@
  <script>
      function Drawer(el, open =false) {
          this.el = el;
-         thisisOpen = open;
+         this.isOpen = open;
          Object.assign(this.el.style, {
              display: 'block',
              position: 'fixed',
@@ -32,6 +32,10 @@
      }
      Drawer.prototype.close = function() {
          this.isOpen = true;
+         this.el.style.transform = 'translate(0px)';
+     }
+     Drawer.prototype.close = function() {
+         this.isOpen = false;
          this.el.style.transform = 'translate(220px)';
      }
 
