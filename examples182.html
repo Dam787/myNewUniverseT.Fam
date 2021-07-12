@@ -22,6 +22,7 @@
              position: 'fixed',
              top: 0,
              botton: 0,
+             right: 0,
              width : '200px',
              padding : '10px',
              backgroundColor: 'white',
@@ -30,7 +31,7 @@
          });
          (this.isOpen) ? this.open() : this.close();
      }
-     Drawer.prototype.close = function() {
+     Drawer.prototype.open = function() {
          this.isOpen = true;
          this.el.style.transform = 'translate(0px)';
      }
