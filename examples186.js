@@ -13,6 +13,25 @@ class TodoManager {
         this._todos = [];
         todos.forEach(todo => {
             this.addTodo(todo.contents, todo.done);
-        })
+        });
+    }
+
+    addTodo(contents, done = false) {
+        const newTodo = new Todo(contents, done);
+        this._todos.push(newTodo);
+        return newTodo;
+    }
+
+    getList() {
+        return this._todos;
+    }
+    get leftTodocount() {
+        return this._todos.reduce((p, c) => {
+            if (c.done === false) {
+                return ++p;
+            } else {
+                return p;
+            }
+        }, 0)
     }
 }
