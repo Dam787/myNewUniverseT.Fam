@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Local Storage</title>
+</head>
+<body>
+    <script>
+        class Cart {
+            constructor() {
+                this._key = "app-cart";
+                const itemString = localStorage.getItem(this._key);  //app-cart라는 문자열의 키를 itemString 에 반환
+                if(itemString) {
+                    this.items = JSON.parse(itemString); //문자열이 JSON 형식이므로 JSON.parse 메소드로 itemString 를 객체화 하여 items 속성에 넣는다.
+                }
+                else {
+                    this.items = []; //가져온 문자열이 없을경우 cart가 초기화된걸로 간주하여 빈객체를 items 속성에 넣는다.
+                }
+            }
+            addItem(item) {
+                this.items.push(item); //배열 items에 item객체 추가하고, 
+                const itemString = JSON.stringify(this.items);//해당배열을 JSON.stringify 를 이용하여 JSON 문자열화 한다.
+                localStorage.setItem(this._key, itemString); //주어진 키에 해당하는 값인 itemstring문자열을 추가.
+                
+            }
+        }
+
+        const cart = new Cart();
+        console.table(cart.items);
+        cart.addItem({name: '노트북', price: 20000})
+    </script>
+    
+</body>
+</html>
