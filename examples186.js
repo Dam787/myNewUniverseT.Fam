@@ -24,14 +24,17 @@ class TodoManager {
 
     getList() {
         return this._todos;
+
     }
-    get leftTodocount() {
+
+    get leftTodoCount() {
         return this._todos.reduce((p, c) => {
             if (c.done === false) {
                 return ++p;
-            } else {
+            }
+            else {
                 return p;
             }
-        }, 0)
+        }, 0);
     }
 }

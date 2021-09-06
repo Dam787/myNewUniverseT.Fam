@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>multiSlideShow 만들기</title>
+    <title>멀티 슬라이드쇼</title>
     <link rel="stylesheet" href="184style.css">
 </head>
 <body>
     <h1>국내 여행</h1>
     <div class="slider">
-        <div class="slider-btn-wrapper slider-btn -wrapper-left" >
+        <div class="slider-btn-wrapper slider-btn-wrapper-left">
             <button id="left-btn" class="slider-btn">&larr;</button>
         </div>
         <div class="item-wrapper">
@@ -23,14 +23,14 @@
                 <img src="jeju.jpeg" />
                 <div class="title">
                     <h2>제주도</h2>
-                    <p>4000원</p>
+                    <p>40000원</p>
                 </div>
             </div>
             <div class="item">
                 <img src="suwon.jpeg" />
                 <div class="title">
                     <h2>수원</h2>
-                    <p>3000원</p>
+                    <p>3200원</p>
                 </div>
             </div>
             <div class="item">
@@ -45,32 +45,31 @@
             <button id="right-btn" class="slider-btn">&rarr;</button>
         </div>
     </div>
-    
     <script>
-       (function() {
-           const itemWrapperEl = document.querySelector('.item-wrapper'),
-           leftBtnEl = document.getElementById('left-btn'),
-           rightBtnEl = document.getElementById('right-btn');
+        (function() {
+            const itemWrapperEl = document.querySelector('.item-wrapper'),
+            leftBtnEl = document.getElementById('left-btn'),
+            rightBtnEl = document.getElementById('right-btn');
 
-           function moveSlides(direction) {
-               const item =itemWrapperEl.querySelector('.item'),
-               itemMargin = parseFloat(getComputedStyle(item).marginRight);
-               itemWidth = itemMargin + item.offsetWidth + 2;
+            function moveSlides(direction) {
+                const item = itemWrapperEl.querySelector('.item'),
+                itemMargin = parseFloat(getComputedStyle(item).marginRignt),
+                itemWidth = itemMargin + item.offsetWidth + 2;
 
-               let itemCount = Math.floor(itemWrapperEl.scrollLeft / itemWidth);
+                let itemCount = Math.round(itemWrapperEl.scrollLeft / itemWidth);
 
-               if (direction === 'left') {
-                   itemCount = itemCount - 1;
-               }
-               else {
-                   itemCount = itemCount + 1;
-               }
-               itemWrapperEl.scrollLeft = itemWidth * itemCount;
-           }
+                if (direction === 'left') {
+                    itemCount = itemCount - 1;
+                } else {
+                    itemCount = itemCount + 1;
+                }
+                itemWrapperEl.scrollLeft = itemWidth * itemCount;
+            }
 
-           leftBtnEl.addEventListener("click", e => moveSlides("left"));
-           rightBtnEl.addEventListener("click", e => moveSlides("right"));
-       })();
+            leftBtnEl.addEventListener("click", e => moveSlides("left"));
+            rightBtnEl.addEventListener("click" , e => moveSlides("right"));
+        })();
     </script>
+    
 </body>
 </html>

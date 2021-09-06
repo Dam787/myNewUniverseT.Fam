@@ -1,13 +1,11 @@
 class TodoApp {
     constructor(todos) {
-        this.todoManager = new TodoManager(todos);
+        this.todoManager = new TodoManagerWithStorage(todos);
         this.todoContainerEl = document.querySelector(".todo-container");
         this.titleEl = document.querySelector(".title h2");
         this.plusBtnEl = document.querySelector(".add-todo button");
-        this.renderTodos();
-        this.bindEvents();
+        this.renderTodos(); this.bindEvents();
     }
-
     renderTodos() {
         this.todoContainerEl.innerHTML = '';
         this.todoManager.getList().forEach((todo, i) => {
@@ -55,5 +53,4 @@ class TodoApp {
             }
         });
     }
-
 }
